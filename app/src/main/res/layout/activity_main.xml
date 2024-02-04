@@ -32,16 +32,19 @@
             app:srcCompat="@drawable/logo" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_text_input_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:enabled="true"
+            android:hint="@string/email"
+            app:boxBackgroundMode="outline"
+            app:hintEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/email_text_input_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:layout_height="match_parent"
                 android:drawableLeft="@drawable/email_icon_24dp"
-                android:hint="@string/email"
                 android:imeActionLabel="@string/email"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
