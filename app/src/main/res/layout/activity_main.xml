@@ -57,13 +57,14 @@
             android:enabled="true"
             android:hint="@string/password"
             app:boxBackgroundMode="outline"
+            app:endIconDrawable="@drawable/visibility_icon_24dp"
+            app:endIconMode="custom"
             app:hintEnabled="true"
             app:startIconDrawable="@drawable/password_icon_24dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/visibility_icon_24dp"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
