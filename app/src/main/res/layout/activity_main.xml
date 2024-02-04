@@ -31,19 +31,20 @@
             android:contentDescription="@string/app_name"
             app:srcCompat="@drawable/logo" />
 
-        <EditText
-            android:id="@+id/email_text_input_layout"
-            style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:contentDescription="@string/email"
-            android:drawableLeft="@drawable/email_icon_24dp"
-            android:ems="10"
-            android:imeActionLabel="Email"
-            android:inputType="textEmailAddress"
-            android:text="@string/email"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_text_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:drawableLeft="@drawable/email_icon_24dp"
+                android:hint="@string/email"
+                android:imeActionLabel="@string/email"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
