@@ -39,12 +39,12 @@
             android:enabled="true"
             android:hint="@string/email"
             app:boxBackgroundMode="outline"
-            app:hintEnabled="true">
+            app:hintEnabled="true"
+            app:startIconDrawable="@drawable/email_icon_24dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:drawableLeft="@drawable/email_icon_24dp"
                 android:imeActionLabel="@string/email"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
