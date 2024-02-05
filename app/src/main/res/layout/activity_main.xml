@@ -77,6 +77,17 @@
             android:enabled="false"
             android:text="@string/login" />
 
+        <Button
+            android:id="@+id/forgot_password_button"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="@string/forgot_password"
+            android:textColor="#045308"
+            android:textColorHighlight="#4CAF50"
+            android:textColorLink="#4CAF50" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
