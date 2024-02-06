@@ -28,7 +28,11 @@ class MainActivity : AppCompatActivity() {
         inputEmail = findViewById(R.id.email_text_input_layout)
         password = findViewById(R.id.password_text_input_layout)
 
-        buttonLogin.setOnClickListener {
+        inputEmail.setOnClickListener {
+            enableButtonLogin()
+        }
+
+        password.setOnClickListener {
             enableButtonLogin()
         }
     }
