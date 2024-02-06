@@ -33,12 +33,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun enableButtonLogin() {
+    private fun enableButtonLogin() {
         var emailText = inputEmail.editText.toString()
         var passwordText = password.editText.toString()
 
         if (!TextUtils.isEmpty(passwordText) && !TextUtils.isEmpty(emailText)) {
-            buttonLogin.isEnabled
+            buttonLogin.isEnabled = true
         }
     }
 }
