@@ -2,6 +2,7 @@ package com.betrybe.sociallogin
 
 import android.os.Bundle
 import android.text.Editable
+import android.text.TextUtils
 import android.text.TextWatcher
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -16,8 +17,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonLogin: Button
     private lateinit var inputEmail: TextInputEditText
     private lateinit var password: TextInputEditText
-    private var isInputEmail = false
-    private var isPassword = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +49,8 @@ class MainActivity : AppCompatActivity() {
         })
     }
     fun enableButtonLogin() {
-        if (password.length() > 0 && inputEmail.length() > 0 ) {
+
+        if (!TextUtils.isEmpty(password.toString()) && !TextUtils.isEmpty(inputEmail.toString())) {
             buttonLogin.isEnabled
         }
     }
