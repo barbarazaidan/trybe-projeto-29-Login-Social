@@ -16,8 +16,10 @@ class MainActivity : AppCompatActivity() {
 
     // crio as variáveis, digo que vou dar o valor delas depois com o lateinit e defino o tipo
     private lateinit var buttonLogin: Button
-    private lateinit var inputEmail: TextInputLayout
-    private lateinit var password: TextInputLayout
+    private lateinit var textPassword: TextInputEditText
+    private lateinit var textEmail: TextInputEditText
+    private var isEmptyEmail = true
+    private var isEmptyPassword = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,25 +27,36 @@ class MainActivity : AppCompatActivity() {
 
         // atribuo valor às variáveis. Preciso fazer isso dentro do escopo desta função onCreate
         buttonLogin = findViewById(R.id.login_button)
-        inputEmail = findViewById(R.id.email_text_input_layout)
-        password = findViewById(R.id.password_text_input_layout)
+        textPassword = findViewById(R.id.password_text)
+        textEmail = findViewById(R.id.email_text)
 
-        inputEmail.setOnClickListener {
-            enableButtonLogin()
-        }
+        textPassword.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {}
 
-        password.setOnClickListener {
-            enableButtonLogin()
-        }
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                // preciso usar o .text , .toString() e o .trim() para conseguir
+                // fazer a validação do campo vazio, incluindo quando a pessoa clica apenas
+                // no backspace
+                isEmptyPassword = textPassword.text.toString().trim().isEmpty()
+                enableButtonLogin()
+            }
+        })
+
+        textEmail.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                isEmptyEmail = textEmail.text.toString().trim().isEmpty()
+                enableButtonLogin()
+            }
+        })
     }
-
     private fun enableButtonLogin() {
-        var emailText = inputEmail.editText.toString()
-        var passwordText = password.editText.toString()
-
-        if (!TextUtils.isEmpty(passwordText) && !TextUtils.isEmpty(emailText)) {
-            buttonLogin.isEnabled = true
-        }
+        buttonLogin.isEnabled = !isEmptyEmail && !isEmptyPassword
     }
 }
 
